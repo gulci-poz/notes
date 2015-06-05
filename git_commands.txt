@@ -182,7 +182,7 @@ git pull - to tak naprawdę fetch + merge
 
 libcurl.dll, libcrypto.dll, libssl.dll trzeba skopiować z git\bin do git\libexec\git-core (to samo jest z libiconv-2.dll, nie trzeba instalować MinGW)
 
-66 - Adding a remote to a local repository
+67 - Forking a Repository
 217 - Recipes
 
 
