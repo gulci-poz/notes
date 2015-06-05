@@ -148,7 +148,7 @@ git stash apply
 można używać wielu stashów, aplikować stash to różnych gałęzi, reverse apply dla stasha, można zapoczątkować gałąź od stasha
 
 git clone https://gulci-poz@bitbucket.org/gulci-poz/learn.git
-git push (po zmianach, tak naprawdę wysyłane są nowe commity)
+git push (po zmianach w plikach, tak naprawdę wysyłane są nowe commity)
 
 git config --global push.default simple
 git config --global push.default matching (poprzednie zachowanie, upload gałęzi do istniejących z takimi samymi nazwami, w największym uproszczeniu)
@@ -182,6 +182,7 @@ git pull - to tak naprawdę fetch + merge
 
 libcurl.dll, libcrypto.dll, libssl.dll trzeba skopiować z git\bin do git\libexec\git-core (to samo jest z libiconv-2.dll, nie trzeba instalować MinGW)
 
+test PowerShell
 
 GitHub API
 
