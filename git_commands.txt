@@ -183,7 +183,7 @@ git pull - to tak naprawdę fetch + merge
 libcurl.dll, libcrypto.dll, libssl.dll trzeba skopiować z git\bin do git\libexec\git-core (to samo jest z libiconv-2.dll, nie trzeba instalować MinGW)
 
 git remote add origin https://github.com/gulci-poz/notes
-git pull https://github.com/gulci-poz/notes master
+git pull origin master
 
 67 - Forking a Repository
 217 - Recipes
