@@ -1,0 +1,203 @@
+gci
+ls
+dir
+
+ls -force
+git
+git --help
+
+help ni -online
+update-help
+ni -itemtype directory FirstRepo
+
+git init
+echo Git rocks! > plik.txt
+git add plik.txt
+git commit -a (pomijając git add), ale plik nie może być untracked
+git status
+
+są trzy poziomy:
+- global (user - all repos for current user),
+- local (repository - current repo) <-- domyślnie,
+- system (all users & repos)
+git config -l
+
+git config --global user.email "sebastian.gulczynski.poznan@gmail.com"
+git config user.email "sebastian.gulczynski.poznan@gmail.com"
+
+git config --global user.name "gulci-poz"
+git config user.name "gulci-poz"
+
+git commit --message "First commit"
+git commit -m "First commit"
+git status
+
+echo Git still rocks! > plik.txt
+echo $null > first.txt
+
+git status
+git add plik.txt
+git status
+git commit -m "Second commit"
+git status
+
+Vim, pojawia się jeśli damy commit bez komentarza
+i - insert
+Esc - akceptacja
+:wq - write & quit
+
+można przenosić folder, o obecności repozytorium świadczy folder .git
+
+untracked - nowy plik
+unmodified - gotowy do edycji/add; taki stan również po commit
+staged - nowo dodany plik bez dodatkowych zmian (przechodzi z unmodified pomijając modified do staged, pokazuje "new file"; czy na pewno jest staged? może jednak jest unmodified) lub zmieniony plik po add (plik osiąga staging area zwany również index)
+modified - po edycji, trzeba dać git add
+
+można dokonać unstage, żeby nie zrobić przypadkowego commitu
+pomoc: git add -h (zamiast --help)
+
+git reset HEAD test.txt (usunięcie z commitu i powrót do untracked w przypadku nowego pliku; istniejący zmodyfikowany plik wróci do modified), można dać . dla wszystkich plików z folderu
+
+git rm - usuwa plik z repozytorium (po drodze jest unstage) i z dysku
+git rm --cached - usuwa plik z repozytorium, ale zostawia na dysku
+w alternatywie do --cached trzeba dać -f w przypadku nowego pliku, plik już modyfikowany można usunąć bez podawania flagi
+ta komenda markuje plik do usunięcia z repo, kolejny commit robi usunięcie; plik nie może być untracked
+widać, że plik jest usunięty z systemu plików i ma status deleted w git
+
+HEAD to wskaźnik do poprzedniego commit albo rodzic następnego commit
+
+git reset --hard HEAD - powrót do początkowego staniu working directory
+
+http://daringfireball.net/projects/markdown/syntax
+
+git log - hostoria commitów
+commit to snaphot w postaci blob-a, commity tworzą acykliczny graf
+
+git add .
+git add --all (-A)
+git add *.txt
+
+$null | add-content file1.txt, file2.txt (można też dać -path)
+komenda robi append
+rm file1.txt, file2.txt
+
+plik .gitignore koniecznie edytujemy w ASCII, inaczej git nie przetworzy go poprawnie
+żeby dodać plik do .gitconfig (mimo, że jest w .gitignore) trzeba wykonać git add -f (--force)
+move-item
+cat - get-content
+rm -recurse -force directory
+explorer .
+
+git rm -rf --cached . - usuwa wszystko z repo, recursive, force
+
+git tag -a nazwaTaga -m "obowiązkowy komentarz"
+git tag -l (--list)
+git show nazwaTaga - pokazuje commity oznaczone tym takiem
+
+git branch
+git branch NewWork
+git checkout NewWork
+git ukrywa pliki, które nie są w danej gałęzi, w eksploratorze też jest ukrywanie
+
+Git GUI - RMB-click w folderze repo
+Repository -> Visualize All Branch History
+git log --graph --decorate --pretty=oneline --abbrev-commit
+git config --global alias.tree 'log --graph --decorate --pretty=oneline --abbrev-commit'
+git tree
+
+git checkout -
+git merge NewWork
+teraz master, NewWork i HEAD wskazują na ten sam commit
+NewWork pozostaje w takim samym stanie (po zmianie plików w NewWork wskaźnik się zmieni? już nie na to samo co master?)
+(fast-forward umożliwia merge z różnych gałęzi, zgodnie z kolejnością tworzenia, domyślnie włączone)
+- nie trzeba czekać z merge do ukończenia kodu -->
+- merge to nie musi być ostatnia rzecz do zrobienia,
+- częsty merge z gałęzi, na których polegamy
+
+dopóki nie zrobimy commit, to widzimy zmiany w danym pliku również w "nadrzędnej" gałęzi (póki tam czegoś nie zmieniliśmy), pokazuje M - modified
+
+w drugą stronę, jeśli był już commit w podrzędnej, a zmienimy coś tutaj, to musimy uważać przy przechodzeniu do podrzędnej (git nam pomaga, anulując checkout); po zrobieniu commit możemy zmienić gałąż, w każdej gałęzi widzimy jej wersję pliku
+
+git diff master..NewWork - porównanie z perspektywy docelowej (tutaj NewWork) gałęzi, można na odwrót
+git log NewWork..master - porównanie commitów
+git shortlog NewWork..master
+git mergetool
+
+- nie pracować na tych samych plikach w różnych gałęziach
+- robić często merge
+
+* edycja w jednej gałęzi, potem w drugiej, dalej merge w drugiej, będą markery git, trzeba poprawić plik i zrobić add + commit (commit -a), nie trzeba jeszcze raz merge, bo już został przeprowadzony
+
+* usunięcie w jednej gałęzi i edycja w drugiej, będzie konflikt, trzeba dać add i commit tam, gdzie jest edycja, żeby nie było usunięcia pliku (można zrobić commit bez komentarza i zostawić to, co daje nam Vim)
+
+* można też usunąć plik z drugiej gałęzi i dać commit, wtedy mamy merge przez usunięcie
+
+* jeśli będzie pusty plik, to w nowej gałęzi trzeba dać add i commit, merge da nam automatyczny delete w macierzystej przestrzeni
+
+przełączenie gałęzi zrobienia bez commit, trzeba dać stash (można to interpretować jako pudełko ze zmianami do przechowania, bez robienia commit), żeby nie stracić zmian
+zmianę robimy w główej gałęzi i próbujemy się przełączyć na rozgałęzienie
+
+stash służy do zachowania zmian, które nie zostały dokończone
+
+brakuje pliku libiconv-2.dll
+trzeba zainstalować MinGW, w folderze bin zainstalować paczkę zawierającą ten plik, skopiować ten plik do git\libexec\git-core
+git stash
+git stash list
+git stash apply
+
+można używać wielu stashów, aplikować stash to różnych gałęzi, reverse apply dla stasha, można zapoczątkować gałąź od stasha
+
+git clone https://gulci-poz@bitbucket.org/gulci-poz/learn.git
+git push (po zmianach, tak naprawdę wysyłane są nowe commity)
+
+git config --global push.default simple
+git config --global push.default matching (poprzednie zachowanie, upload gałęzi do istniejących z takimi samymi nazwami, w największym uproszczeniu)
+jeśli wcześniej tego nie ustawię, to są problemy z gałęzią:
+git branch --unset-upstream
+git push --set-upstream origin master
+
+można też w folderze projektu:
+git init
+git remote add origin https://gulci-poz@bitbucket.org/gulci-poz/learn.git
+po add i commit dla jakiegoś pliku wypychamy go do zdalnego repo:
+git push -u origin master
+
+git checkout -b pasta - tworzy nową gałąź i od razu to niej przechodzi
+git push -u origin pasta (zostanie utworzony pull-request dla pasta)
+-u umożliwia tracking zdalnego repo, za kolejnym push już nie trzeba używać -u
+
+origin to domyślna nazwa zdalnego repozytorium
+git remote -v (--veerbose) - lista zdalnych repo skonfigurowanych w naszym repo
+git remote - inne opcje
+
+git push - do odpowiadającej gałęzi
+git fetch - wszystkie trackowane gałęzie
+git remote show origin
+
+lokalne i zdalne gałęzie mogą mieć różne nazwy
+
+git fetch - ściąga różnice, ale nie aplikuje ich
+musimy być w danej gałęzi
+git pull - to tak naprawdę fetch + merge
+
+libcurl.dll, libcrypto.dll, libssl.dll trzeba skopiować z git\bin do git\libexec\git-core (to samo jest z libiconv-2.dll, nie trzeba instalować MinGW)
+
+
+GitHub API
+
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+choco install posh-github
+lub
+choco upgrade posh-github
+
+Set-ExecutionPolicy RemoteSigned
+get-command *-github*
+New-GitHubOAuthToken -UserName someUserName -Password somePassword
+za każdym razem musimy generować token
+Set-GitHubUserName -User someUserName
+New-GitHubRepository -Name someRepoName - tworzy puste repo i klonuje je do bieżącego folderu
+
+
+66 - Adding a remote to a local repository
+217 - Recipes
