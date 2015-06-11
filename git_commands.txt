@@ -185,6 +185,8 @@ libcurl.dll, libcrypto.dll, libssl.dll trzeba skopiować z git\bin do git\libexe
 git remote add origin https://github.com/gulci-poz/notes
 git pull origin master
 
+rd /s /q folder - usunięcie drzewa + ciche usunięcie
+
 67 - Forking a Repository
 217 - Recipes
 
