@@ -1,0 +1,50 @@
+Architectural Visualization, Education & Gaming:
+- Unreal Engine
+- Blender
+- Maya
+- 3ds Max
+- Houdini
+
+- C/Cpp - C/Cpp Primer Plus + 3DBuzz (te¿ OGL) + ksi¹¿ki
+
+- szkice - pomys³y (foto) - Photoshop
+- artwork / design
+
+UE4 dt path
+UE4 yt UE path
+UE4 book cpp - 89 (106) Return; UE yt Cpp; Ryan Shah books
+
+
+Realna alternatywa:
+
+	- Pluralsight Android
+
+	- Java Expert 17 + ch. 2 & 3
+
+	- Lynda Android Essential
+	- Lynda Android Studio
+	- Lynda Java (Essential, Advanced, J8)
+
+	- Learning Java by Building Android Games
+	- Packt's new book by John Horton
+	- The Big Nerd Ranch Android
+	
+	
+Pluralsight do sprawdzenia:
+
+	- jQuery Mobile, Sencha, KendoUI
+	- Xamarin (dawne Mono Develop)
+	- Phone Gap, Titanium Appcelerator, RhoMobile
+	- Mono Game, Corona SDK; Unity, Unreal
+
+	
+Pozosta³e Ÿród³a:
+
+	- Jeff Friesen book - 37 Learning Identifiers
+	- Introduction to Android App Dev
+	- Java 8 Games (x2)
+	- Git Essentials + Git Recipes
+	- inne ksi¹¿ki android (np. Design Patterns, NFC)
+	- Learning C++ by Creating Games with Unreal Engine 4
+	- AngularJS by Examples + Pluralsight
+	- Xamarin (ksi¹¿ka, Pluralsight)
