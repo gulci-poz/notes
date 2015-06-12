@@ -19,7 +19,7 @@ Realna alternatywa:
 
 	- Pluralsight Android
 
-	- Java Expert 17 + ch. 2 & 3
+	- Java Expert 28 Multidimensional Arrays + ch. 2 & 3
 
 	- Lynda Android Essential
 	- Lynda Android Studio
