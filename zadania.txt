@@ -23,11 +23,17 @@ Realna alternatywa:
 
 	- Lynda Android Essential
 	- Lynda Android Studio
-	- Lynda Java (Essential, Advanced, J8)
+	- Lynda Java (Essential, Advanced, J8, Notes, pozosta³e)
 
 	- Learning Java by Building Android Games
 	- Packt's new book by John Horton
 	- The Big Nerd Ranch Android
+	
+	- Material Design - slidenerd + Google
+	
+	- Udacity Android x 2
+	- Udacity Java
+	- Udacity UX + dev
 	
 	
 Pluralsight do sprawdzenia:
