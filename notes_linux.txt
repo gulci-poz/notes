@@ -1,0 +1,64 @@
+﻿http://developer.android.com/tools/devices/emulator.html#vm-linux
+http://tools.android.com/knownissues/ibus
+http://www.itzgeek.com/how-tos/virtualization/how-to-install-kvm-on-fedora-22.html#axzz3g5ZAOhWo
+http://developer.android.com/tools/device.html
+http://forums.fedoraforum.org/showthread.php?t=298965
+pamiętać o przełączeniu na PTP!!!
+
+Kopiujemy czcionkę do /usr/share/fonts/local (tworzymy wcześniej local)
+Komenda fc-cache /usr/share/fonts/local
+
+Kopiujemy JDK do /usr/lib/jvm
+
+update-alternatives --install "/usr/bin/java" "java" \
+"/usr/lib/jvm/jdk-name/bin/java" 1
+
+update-alternatives --install "/usr/bin/javac" "javac" \
+"/usr/lib/jvm/jdk-name/bin/javac" 1
+
+update-alternatives --install "/usr/bin/javaws" "javaws" \
+"/usr/lib/jvm/jdk-name/bin/javaws" 1
+
+update-alternatives --config java
+update-alternatives --config javac
+update-alternatives --config javaws
+
+Na każdym profilu użytkownika (jedna sesja - jeden wpis):
+echo "export PATH=$PATH:/home/gulci/android/astudio/bin" >> ~/.bashrc
+echo "export PATH=$PATH:/home/gulci/apps/sublime" >> ~/.bashrc
+echo "export PATH=$PATH:/home/gulci/android/asdk/build-tools:/home/gulci/android/asdk/platform-tools:/home/gulci/android/asdk/tools" >> ~/.bashrc
+echo $PATH
+
+dnf update
+
+dnf whatprovides ld-linux.so.2
+dnf install glibc-2.21-7.fc22.i686
+
+dnf whatprovides libgcc_s.so.1
+dnf install libgcc-5.1.1-4.fc22.i686
+
+dnf whatprovides libstdc++.so.6
+dnf install libstdc++-5.1.1-4.fc22.i686
+
+dnf whatprovides libz.so.1
+dnf install zlib-1.2.8-7.fc22.i686
+
+egrep '(vmx|svm)' /proc/cpuinfo
+dnf groupinstall "Virtualization"
+dnf install qemu-img  libvirt libvirt-python libvirt-client
+
+RPM install verbose
+rpm -iv package_name
+
+RPM check dependencies
+rpm qpR package_name
+
+Do instalacji Chrome:
+dnf whatprovides lsb
+dnf install redhat-lsb-4.1-29.fc22.i686
+dnf install redhat-lsb-4.1-29.fc22.x86_64
+
+dnf whatprovides libXss.so.1
+potrzebna jest też wersja 64-bit
+dnf install libXScrnSaver-1.2.2-8.fc22.i686
+dnf install libXScrnSaver-1.2.2-8.fc22.x86_64
