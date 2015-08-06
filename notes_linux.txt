@@ -62,3 +62,6 @@ dnf whatprovides libXss.so.1
 potrzebna jest też wersja 64-bit
 dnf install libXScrnSaver-1.2.2-8.fc22.i686
 dnf install libXScrnSaver-1.2.2-8.fc22.x86_64
+
+Klucz publiczny do Chrome, bez zainstalowania nie idzie update
+rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
